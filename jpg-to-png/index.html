@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Free JPG to PNG Converter | BestFreeConvertly</title>
+<meta name="description" content="Convert JPG to PNG online for free. No signup required.">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+<header><h1>JPG to PNG Converter</h1></header>
+
+<main>
+<input type="file" id="upload" accept="image/jpeg">
+<br><br>
+<button onclick="convert()">Convert</button>
+<br><br>
+<a id="download" style="display:none;">Download PNG</a>
+
+<p>This tool converts JPG images to PNG format directly in your browser.</p>
+</main>
+
+<script>
+function convert() {
+  const file = document.getElementById('upload').files[0];
+  if (!file) return alert("Upload a JPG file");
+
+  const img = new Image();
+  img.src = URL.createObjectURL(file);
+
+  img.onload = () => {
+    const canvas = document.createElement('canvas');
+    canvas.width = img.width;
+    canvas.height = img.height;
+    canvas.getContext('2d').drawImage(img, 0, 0);
+
+    canvas.toBlob(blob => {
+      const link = document.getElementById('download');
+      link.href = URL.createObjectURL(blob);
+      link.download = 'converted.png';
+      link.style.display = 'inline';
+      link.innerText = 'Download PNG';
+    });
+  };
+}
+</script>
+
+</body>
+</html>

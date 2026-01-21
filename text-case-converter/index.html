@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Text Case Converter | BestFreeConvertly</title>
+<meta name="description" content="Convert text to uppercase, lowercase, or sentence case for free.">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+<header><h1>Text Case Converter</h1></header>
+
+<main>
+<textarea id="text" rows="6" cols="40"></textarea><br><br>
+<button onclick="upper()">UPPERCASE</button>
+<button onclick="lower()">lowercase</button>
+</main>
+
+<script>
+function upper() {
+  document.getElementById('text').value =
+  document.getElementById('text').value.toUpperCase();
+}
+
+function lower() {
+  document.getElementById('text').value =
+  document.getElementById('text').value.toLowerCase();
+}
+</script>
+
+</body>
+</html>

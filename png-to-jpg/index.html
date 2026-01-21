@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Free PNG to JPG Converter | BestFreeConvertly</title>
+<meta name="description" content="Convert PNG to JPG online for free.">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+<header><h1>PNG to JPG Converter</h1></header>
+
+<main>
+<input type="file" id="upload" accept="image/png">
+<br><br>
+<button onclick="convert()">Convert</button>
+<br><br>
+<a id="download" style="display:none;">Download JPG</a>
+</main>
+
+<script>
+function convert() {
+  const file = document.getElementById('upload').files[0];
+  if (!file) return alert("Upload a PNG file");
+
+  const img = new Image();
+  img.src = URL.createObjectURL(file);
+
+  img.onload = () => {
+    const canvas = document.createElement('canvas');
+    canvas.width = img.width;
+    canvas.height = img.height;
+    canvas.getContext('2d').drawImage(img, 0, 0);
+
+    canvas.toBlob(blob => {
+      const link = document.getElementById('download');
+      link.href = URL.createObjectURL(blob);
+      link.download = 'converted.jpg';
+      link.style.display = 'inline';
+      link.innerText = 'Download JPG';
+    }, 'image/jpeg');
+  };
+}
+</script>
+
+</body>
+</html>
