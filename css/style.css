@@ -1,42 +1,99 @@
-body {
-  font-family: Arial, sans-serif;
-  background: #f9f9f9;
+/* BASIC RESET */
+body, h1, h2, p, ul, li {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
-header {
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f4f6f8;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* HERO SECTION */
+header .hero {
+  text-align: center;
+  padding: 80px 20px;
+  background: linear-gradient(120deg, #4facfe, #00f2fe);
+  color: #fff;
+}
+
+header .hero h1 {
+  font-size: 2.8em;
+  margin-bottom: 10px;
+}
+
+header .hero p {
+  font-size: 1.2em;
+}
+
+/* TOOLS GRID */
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  padding: 50px 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.tool-card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  padding: 25px 20px;
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.tool-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.tool-card img {
+  width: 80px;
+  margin-bottom: 15px;
+}
+
+.tool-card h2 {
+  font-size: 1.4em;
+  margin-bottom: 10px;
+}
+
+.tool-card p {
+  font-size: 0.95em;
+  margin-bottom: 15px;
+}
+
+/* BUTTONS */
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #4facfe;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background: #00f2fe;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 20px;
   background: #222;
   color: #fff;
-  padding: 20px;
-  text-align: center;
-}
-
-main {
-  padding: 20px;
-}
-
-.tool-list {
-  list-style: none;
-  padding: 0;
-}
-
-.tool-list li {
-  background: #fff;
-  margin-bottom: 10px;
-  padding: 15px;
-  border-radius: 5px;
-}
-
-.tool-list a {
-  text-decoration: none;
-  color: #222;
-  font-weight: bold;
-}
-
-footer {
-  background: #eee;
-  text-align: center;
-  padding: 10px;
   font-size: 14px;
+}
+
+footer a {
+  color: #fff;
+  text-decoration: underline;
 }
